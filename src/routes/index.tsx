@@ -175,12 +175,6 @@ function Portfolio() {
           <h2 className="font-display text-3xl font-bold md:text-5xl">
             Selected <span className="text-gradient">projects</span>
           </h2>
-          <p className="mt-4 text-sm text-muted-foreground">
-            Two screens per project — drop your own screenshots into{" "}
-            <code className="rounded bg-secondary px-1.5 py-0.5 text-primary">
-              public/images/projects/
-            </code>
-          </p>
         </Reveal>
 
         <div className="mt-14 space-y-20">
