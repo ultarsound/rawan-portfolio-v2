@@ -132,7 +132,7 @@ function Portfolio() {
         <div className="border-y border-border/60 py-4">
           <div className="flex w-max marquee-track gap-10 pr-10 text-sm tracking-[0.25em] text-muted-foreground uppercase">
             {[...marqueeWords, ...marqueeWords].map((word, i) => (
-              <span key={i} className="flex items-center gap-10">
+              <span key={`${word}-${i}`} className="flex items-center gap-10">
                 {word}
                 <span className="size-1 rounded-full bg-accent" />
               </span>
@@ -188,7 +188,7 @@ function Portfolio() {
                 <div className="grid grid-cols-2 gap-3">
                   {project.images.map((img, i) => (
                     <div
-                      key={img}
+                      key={`${project.slug}-img-${i}`}
                       className={`overflow-hidden rounded-2xl surface-card transition-transform duration-500 hover:-translate-y-2 ${
                         i === 1 ? "translate-y-6" : ""
                       }`}
@@ -212,8 +212,8 @@ function Portfolio() {
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground">{project.subtitle}</p>
                   <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
-                    {project.points.map((point) => (
-                      <li key={point} className="flex gap-3">
+                    {project.points.map((point, i) => (
+                      <li key={`${project.slug}-point-${i}`} className="flex gap-3">
                         <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
                         {point}
                       </li>
@@ -272,15 +272,15 @@ function Portfolio() {
               <h2 className="font-display text-3xl font-bold md:text-4xl">Experience</h2>
             </Reveal>
             <div className="mt-8 space-y-6">
-              {experience.map((item) => (
-                <Reveal key={item.role}>
+              {experience.map((item, i) => (
+                <Reveal key={`${item.role}-${item.org}-${i}`}>
                   <div className="relative rounded-3xl surface-card p-6">
                     <h3 className="font-display text-lg font-bold">{item.role}</h3>
                     <p className="text-sm text-primary">{item.org}</p>
                     <p className="mt-1 text-xs text-muted-foreground">{item.period}</p>
                     <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                      {item.points.map((p) => (
-                        <li key={p} className="flex gap-3">
+                      {item.points.map((p, pi) => (
+                        <li key={`${item.role}-point-${pi}`} className="flex gap-3">
                           <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" />
                           {p}
                         </li>
@@ -308,7 +308,7 @@ function Portfolio() {
             </Reveal>
             <div className="mt-8 space-y-4">
               {certifications.map((cert, i) => (
-                <Reveal key={cert.title} delay={i * 90}>
+                <Reveal key={`${cert.title}-${i}`} delay={i * 90}>
                   <div className="rounded-3xl surface-card p-6 transition-transform hover:-translate-y-1">
                     <h3 className="font-display text-base font-bold">{cert.title}</h3>
                     <p className="text-sm text-primary">{cert.org}</p>
@@ -355,10 +355,12 @@ function Portfolio() {
             </div>
           </Reveal>
         </div>
-        <footer className="border-t border-border/60 py-8 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} {profile.name} · {profile.role}
-        </footer>
       </section>
+
+      {/* Footer — moved outside the last section for correct semantic structure */}
+      <footer className="border-t border-border/60 py-8 text-center text-xs text-muted-foreground">
+        © {new Date().getFullYear()} {profile.name} · {profile.role}
+      </footer>
     </main>
   );
 }
