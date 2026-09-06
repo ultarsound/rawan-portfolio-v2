@@ -6,6 +6,7 @@ export const profile = {
   taglineEn:
     "Flutter developer crafting scalable cross-platform apps with BLoC, GetX, Firebase and clean architecture.",
   email: "rawantharwat2004@gmail.com",
+  whatsapp: "https://wa.me/201026482014",
   phone: "01026482014",
   location: "Al Gharbia, Egypt",
   linkedin: "https://linkedin.com/in/rawan-tharwat-5024b1297",
@@ -109,13 +110,13 @@ export const projects: Project[] = [
 export const experience = [
   {
     role: "Freelance Flutter Developer",
-    org: "Self-employed / Remote",
+    org: "Upwork (Freelance) / Remote",
     period: "July 2026 – Present",
     points: [
-      "Cross-platform mobile apps for clients, from UI design to backend integration.",
-      "Clean Architecture with BLoC/Cubit, GetX and Provider for maintainable code.",
-      "REST APIs and Firebase (Auth, Firestore, Cloud Messaging) per client needs.",
-      "Independent client communication, requirements gathering and delivery.",
+      "Develop cross-platform mobile applications for clients on Upwork, delivering end-to-end solutions from UI design to backend integration.",
+      "Apply Clean Architecture and state management (BLoC/Cubit, GetX, Provider) to build scalable, maintainable client projects.",
+      "Integrate REST APIs and Firebase services (Authentication, Firestore, Cloud Messaging) based on individual client requirements.",
+      "Manage client communication, requirement gathering, and project delivery independently on the Upwork platform.",
     ],
   },
 ];

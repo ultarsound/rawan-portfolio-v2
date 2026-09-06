@@ -4,7 +4,8 @@ import { profile } from "./portfolio-data";
 export const siteUrl = (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, "") ?? "";
 
 export const seo = {
-  siteName: `${profile.name} — Portfolio`,
+  // تم تعديل siteName ليكون اسمكِ فقط بدلاً من "Name — Portfolio" ليظهر اسم الموقع بوضوح في جوجل
+  siteName: profile.name,
   defaultTitle: `${profile.name} — Flutter Developer Portfolio`,
   defaultDescription: `Portfolio of ${profile.name}, Flutter developer building cross-platform mobile apps with BLoC, GetX, Firebase and clean architecture.`,
   keywords: [
@@ -58,13 +59,11 @@ export function personJsonLd() {
 }
 
 export function websiteJsonLd() {
-  if (!siteUrl) return null;
-
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: seo.siteName,
-    url: siteUrl,
+    url: siteUrl || "https://rawan-portfolio-v2.vercel.app",
     description: seo.defaultDescription,
     author: {
       "@type": "Person",

@@ -332,24 +332,40 @@ function Portfolio() {
               Open to Flutter roles and freelance projects. The fastest way to reach me is email.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
+              {/* Email Button */}
               <a
                 href={`mailto:${profile.email}`}
-                className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground glow transition-transform hover:-translate-y-1"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground glow transition-transform hover:-translate-y-1"
               >
-                {profile.email}
+                <svg className="size-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+                Email
               </a>
+
+              {/* WhatsApp Button */}
               <a
-                href={`tel:${profile.phone}`}
-                className="rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:border-primary hover:text-primary"
+                href={profile.whatsapp || `https://wa.me/20${profile.phone}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:border-primary hover:text-primary"
               >
-                {profile.phone}
+                <svg className="size-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.031 2c-5.517 0-9.993 4.476-9.993 9.993 0 1.763.459 3.483 1.332 5.002L2 22l5.12-1.343c1.474.804 3.138 1.226 4.911 1.226 5.517 0 9.993-4.476 9.993-9.993C22.024 6.476 17.548 2 12.031 2zm0 18.271c-1.503 0-2.977-.404-4.264-1.168l-.306-.182-3.167.83.845-3.087-.2-.318c-.838-1.334-1.282-2.879-1.282-4.463 0-4.562 3.712-8.274 8.274-8.274 4.562 0 8.274 3.712 8.274 8.274 0 4.562-3.712 8.274-8.274 8.274zm4.536-6.196c-.249-.125-1.472-.727-1.7-.81-.228-.083-.394-.125-.56.125-.166.249-.643.81-.788.976-.145.166-.291.187-.54.062-.249-.125-1.053-.388-2.006-1.238-.742-.662-1.242-1.48-1.387-1.729-.145-.249-.015-.384.109-.508.112-.112.249-.291.374-.436.125-.145.166-.249.249-.415.083-.166.042-.311-.021-.436-.062-.125-.56-1.349-.768-1.847-.203-.486-.41-.42-.56-.428l-.478-.009c-.166 0-.436.062-.664.311-.228.249-.871.851-.871 2.075 0 1.224.892 2.407 1.016 2.573.125.166 1.756 2.681 4.254 3.76.594.257 1.058.41 1.42.526.597.19 1.14.163 1.569.099.478-.071 1.472-.602 1.68-1.183.208-.581.208-1.079.145-1.183-.062-.104-.228-.166-.477-.291z" />
+                </svg>
+                WhatsApp
               </a>
+
+              {/* LinkedIn Button */}
               <a
                 href={profile.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:border-primary hover:text-primary"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:border-primary hover:text-primary"
               >
+                <svg className="size-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                </svg>
                 LinkedIn
               </a>
             </div>
@@ -357,7 +373,7 @@ function Portfolio() {
         </div>
       </section>
 
-      {/* Footer — moved outside the last section for correct semantic structure */}
+      {/* Footer */}
       <footer className="border-t border-border/60 py-8 text-center text-xs text-muted-foreground">
         © {new Date().getFullYear()} {profile.name} · {profile.role}
       </footer>
